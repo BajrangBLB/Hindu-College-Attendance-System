@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance | QRCode</title>
+
+  <style>
+    .box {
+        margin: auto;
+        width: 500px;
+    }
+
+    button {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
+  </style>
+</head>
+<body>
+    <a href="staff"><button action="staff">Close</button></a>
+      <div class="box">
+        <div height=500px>
+          {{ svg|safe }}
+        </div>
+      </div>
+
+      
+  </body>
+</html>

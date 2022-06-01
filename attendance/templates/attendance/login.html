@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Attendence : Hindu College</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <h1>Hindu College Attendance System</h1>
+
+
+
+    <style type="text/css">
+        .text {
+            height: 25px;
+            border-radius: 5px;
+            padding: 4px;
+            border: solid thin #aaa;
+            width: 80%;
+        }
+        
+        #button {
+            padding: 10px;
+            width: 100px;
+            color: white;
+            background-color: lightblue;
+            border: none;
+        }
+        
+        #box {
+            background-color: grey;
+            margin: auto;
+            width: 300px;
+            padding: 20px;
+        }
+    </style>
+
+    <div id="box">
+
+        <form method="post" action="login">
+            {% csrf_token %}
+            <div style="font-size: 20px; margin: 10px;color: white; text-align: center;">Login</div>
+            <label for="username" style="color:white;">Username<sup style="color: red;">*</sup></label><br>
+
+
+            <input id="username" type="text" name="user_name" class="text"><br><br>
+
+            <label for="password" style="color:white;">Password<sup style="color: red;">*</sup></label><br>
+            <input id="password" type="password" name="password" class="text"><br><br>
+            <input type="checkbox" onclick="myFunction()"> Show Password <br>
+
+            <input id="button" type="submit" value="Login"><br><br>
+        </form>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+
+</html>

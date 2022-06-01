@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Staff Portal - Hindu College Attendance System</title>
+</head>
+<style>
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    h1 {
+        padding: 10px;
+        margin: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+    button {
+        margin: 20px;
+        font-size: 20px;
+        padding: 10px;
+        width: 400px;
+    }
+    
+    .sheet {
+        display: flex;
+    }
+    
+    .form_block {
+        display: block;
+        border: solid 2px grey;
+        border-radius: 3;
+        padding: 10px;
+        width: 380px;
+        margin-left: 35%;
+    }
+    
+    .form_item {
+        margin: 2px;
+        padding: 10px;
+        text-align: left;
+    }
+    
+    input {
+        font-size: medium;
+        padding: 5px;
+        border-radius: 5px;
+        border: solid 1px black;
+        background-color: azure;
+    }
+</style>
+
+<body>
+    <h1 class="center">Hindu College Attendance System</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="center">
+        <a href="view_attendance"><button class="center">View Attendance</button></a>
+    </div>
+    <div class="center">
+        <button class="center" id="update_attendance_btn" onclick="updateAttendanceFunction()">Update Attendance</button>
+    </div>
+
+    <div class="center" id="update_attendance_container">
+        <form class="form_block center" action="update_attendance" method="post">
+            {% csrf_token %}
+            <div class="form_item">
+                <label for="att_date"><b>Class Date</b></label><br>
+                <input type="date" name="att_date" id="att_date" required></div><br>
+            <div class="form_item">
+                <label for="roll_no"><b>Student Roll No.</b></label><br>
+                <input type="text" name="roll_no" id="roll_no" placeholder="Enter Student Roll No." required></div><br>
+            <div class="form_item">
+                <label for="no_classes"><b>Number of Classes</b></label><br>
+                <input type="text" name="no_classes" id="no_classes" placeholder="Enter No. of Classes" required></div>
+
+            <div class="center">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div class="center">
+        <a href="generate_qr">
+            <button class="center">Take Attendance</button></a>
+    </div>
+    <div class="center">
+        <a href="download_attendance">
+            <button class="center">Download Attendance</button></a>
+    </div>
+
+
+    <script>
+        window.onload = function() {
+            document.getElementById('update_attendance_container').style.display = 'none';
+        }
+
+        function updateAttendanceFunction() {
+            document.getElementById('update_attendance_container').style.display = 'block';
+            document.getElementById('update_attendance_btn').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

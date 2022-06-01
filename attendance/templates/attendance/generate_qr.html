@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code Generator</title>
+
+  <style type="text/css">
+    .text {
+        height: 25px;
+        border-radius: 5px;
+        padding: 4px;
+        border: solid thin #aaa;
+        width: 80%;
+    }
+    
+    #button {
+        padding: 10px;
+        width: 100px;
+        color: white;
+        background-color: lightblue;
+        border: none;
+    }
+    
+    #box {
+        background-color: grey;
+        margin: auto;
+        width: 300px;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+    <div id="box">
+    <form method="post" action="generate_qr">
+      {% csrf_token %}
+      <div style="font-size: 20px; margin: 10px;color: white; text-align: center;">Generate QR Code for Attendance</div>
+            <label for="stime" style="color:white;">Starting Time<sup style="color: red;">*</sup></label><br>
+
+            <input id="stime" type="time" name="stime" class="text"><br><br>
+
+            <label for="nclass" style="color:white;">No of Classes<sup style="color: red;">*</sup></label><br>
+            <input id="nclass" type="text" name="nclass" class="text"><br><br>
+
+            <input id="button" type="submit" value="Generate QRCode"><br><br>
+    </form>
+</div>
+      
+  </body>
+</html>
