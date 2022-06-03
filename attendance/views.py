@@ -136,11 +136,11 @@ def generate_df():
         del i['code']
         del i['id']
 
-        list_dates.append(i['class_date'])
+        list_dates.append(str(i['class_date']))
 
         # del i['class_date']
 
-        dict_data[i['class_date']] = list(i.values())[1:]
+        dict_data[str(i['class_date'])] = list(i.values())[1:]
         
 
     for key in dict_data:
